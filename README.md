@@ -1,2 +1,3 @@
-# tf2mvm-scripts
-Collection of Mann vs Machine mission scripts.
+# TF2 Mann vs Machine Scripts
+
+Collection of script files made or modified by me.

@@ -1,0 +1,536 @@
+// Custom Robots, I need to find a better name for this file.
+// Author: Anonymous Player ( https://steamcommunity.com/profiles/76561198053992136 )
+WaveSchedule
+{
+	Templates
+	{
+	    // Sniper
+		T_TFBot_Sniper_AWP
+		{
+			Class Sniper
+			Skill Expert
+			Name "AWP Sniper"
+			ClassIcon sniper_awp
+			MaxVisionRange 4000
+			Attributes AlwaysCrit
+			Item "The AWPer Hand"
+			Item "The Razorback"
+			Item "The Well-Rounded Rifleman"
+			Item "The Deadliest Duckling"
+			ItemAttributes
+			{
+				ItemName "The AWPer Hand"
+				"damage bonus" 1.35
+			}
+		}
+		// Spy
+		T_TFBot_Gentle_Spy // non-stock sappers crashes client
+		{
+			Class Spy
+			Skill Expert
+			ClassIcon spy_fedora
+			Name "Gentle Spy"
+			Health 500
+			Item "Fancy Fedora"
+			Item "The Ambassador"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER_SPY"
+				"kill eater score type" 24
+				"sapper damage penalty" 0
+				"sapper degenerates buildings" 0.9
+			}
+		}
+		T_TFBot_Spy_Degenerate
+		{
+			Class Spy
+			Skill Expert
+			ClassIcon spy_fedora
+			Name "IamgoingtofuckU"
+			Health 125
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER_SPY"
+				"kill eater score type" 24
+				"sapper damage penalty" 0
+				"sapper degenerates buildings" 0.5
+			}
+		}
+		// Engineer - Fast Build
+		T_TFBot_Engineer_Sentry_Teleporter_Fast_Build
+		{
+			Class Engineer
+			Name Engineer
+			ClassIcon engineer_fast // BUGBUG!! - custom icons on engineers breaks the teleporter active icon
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 500
+			Attributes TeleportToHint
+			Item "The Pocket Pyro"
+			Name "Fast Engineer"
+
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"engineer sentry build rate multiplier" 1.75
+				"engineer teleporter build rate multiplier" 3.0
+				"Construction rate increased" 5.0
+			}
+		}
+		T_TFBot_Engineer_Sentry_Teleporter_Fast_Build_Battle
+		{
+			Class Engineer
+			Name Engineer
+			ClassIcon engineer_fast // BUGBUG!! - custom icons on engineers breaks the teleporter active icon
+			Skill Expert
+			Health 275
+			Attributes TeleportToHint
+			Item "The Pocket Pyro"
+			Name "Fast Battle Engineer"
+
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"engineer sentry build rate multiplier" 2.50
+				"fire rate bonus" 0.25
+				"Repair rate increased" 1.50
+				"Construction rate increased" 3.0
+			}
+		}
+		T_TFBot_Scout_Pistol
+		{
+			Class Scout
+			Skill Expert
+			ClassIcon scout_pistol
+			WeaponRestrictions SecondaryOnly
+			Name "El Pistoleiro Scout"
+		}
+		// Rocket Spammer Soldiers
+		T_TFBot_Soldier_Junior_Spammer
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_rocketspam
+			Name "Junior Rocket Spammer"
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			ItemAttributes
+			{
+			    ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 4
+				"fire rate bonus" 0.7
+				"projectile spread angle penalty" 2
+			}
+		}
+		T_TFBot_Soldier_Senior_Spammer
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_rocketspam
+			Health 350
+			Name "Senior Rocket Spammer"
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Scale 1.15
+			ItemAttributes
+			{
+			    ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 12
+				"fire rate bonus" 0.5
+				"projectile spread angle penalty" 2
+			}
+		}
+		T_TFBot_Soldier_Rocket_Spammer
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_rocketspam_giant
+			Name "Rocket Spammer"
+			Health 8000
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			ItemAttributes
+			{
+			    ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 36
+				"fire rate bonus" 0.3
+				"faster reload rate" 0.3
+				"projectile spread angle penalty" 2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 4
+				"airblast vertical vulnerability multiplier" 0.1
+			}
+		}
+		T_TFBot_Soldier_Rocket_Spammer_Infinity
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_rocketspam_giant
+			Name "Infinity Rocket Spammer"
+			Health 8000
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			ItemAttributes
+			{
+			    ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 56
+				"fire rate bonus" 0.3
+				"Projectile speed increased" 1.4
+				"faster reload rate" -0.8
+				"projectile spread angle penalty" 2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 4
+				"airblast vertical vulnerability multiplier" 0.1
+			}
+		}
+		T_TFBot_Celestial_Rocket_Spammer
+		{
+			Class Soldier
+			Skill Expert
+			Name "Celestial Rocket Spammer"
+			ClassIcon soldier_celestia
+			Health 50000
+			WeaponRestrictions PrimaryOnly
+			Item "Full Metal Drill Hat"
+			Item "Soldier's Sparkplug"
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			Attributes UseBossHealthBar
+			Attributes AlwaysCrit
+			Scale 1.9
+			ItemAttributes
+			{
+			    ItemName "TF_WEAPON_ROCKETLAUNCHER"
+				"clip size upgrade atomic" 76
+				"fire rate bonus" 0.1
+				"faster reload rate" 0.05
+				"projectile spread angle penalty" 5
+				"Blast radius increased" 2.0
+				"Projectile speed increased" 1.6
+				//"Set DamageType Ignite" 1 // broken since jungle inferno
+				//"weapon burn dmg increased" 5
+				"bleeding duration" 9 // added bleed to replace lack of fire
+				"heal on kill" 5000
+			}
+			CharacterAttributes
+			{
+			    "health regen"	10
+				"move speed bonus"	0.25
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 4
+				"airblast vertical vulnerability multiplier" 0.1
+				"rage giving scale" 0.5
+
+			}
+		}
+		T_TFBot_Scout_Wrap_Assassin_Stun
+		{
+			Class Scout
+			Name "Wrap Assassin"
+			Skill Expert
+			WeaponRestrictions MeleeOnly
+
+			Item "The Wrap Assassin"
+			ItemAttributes
+			{
+				ItemName "The Wrap Assassin"
+				"damage bonus" 0.15
+				"bleeding duration" 5
+				"damage causes airblast" 1
+				"mod stun waist high airborne" 2
+				"effect bar recharge rate increased" 0.40
+			}
+		}
+		T_TFBot_Soldier_Science
+		{
+			Class Soldier
+			ClassIcon soldier_science
+			Skill Expert
+			Name "Science Soldier"
+			WeaponRestrictions PrimaryOnly
+			Item "The Cow Mangler 5000"
+		}
+		T_TFBot_Heavyweapons_Expert
+		{
+			Class Heavyweapons
+			Skill Expert
+			Name "Heavy Weapons Robot"
+			WeaponRestrictions PrimaryOnly
+		}
+		T_TFBot_Heavyweapons_Stun
+		{
+			Class Heavyweapons
+			Skill Expert
+			Name "Stun Heavy Bot"
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 600
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MINIGUN"
+				"mod stun waist high airborne" 4
+				"damage causes airblast" 1
+				"weapon spread bonus" 0.75
+				"fire rate penalty" 1.35
+				"damage penalty" 0.2
+			}
+		}
+		T_TFBot_Heavyweapons_Laugh
+		{
+			Class Heavyweapons
+			Skill Expert
+			ClassIcon heavy_mittens
+			MaxVisionRange 2000
+			Scale 0.7
+			Health 60
+			Name "Laughing Heavy"
+			Attributes AlwaysCrit
+			WeaponRestrictions PrimaryOnly
+			Item "The All-Father"
+			Item "The B.M.O.C."
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MINIGUN"
+				"crit forces victim to laugh" 1
+				"crit does no damage" 1
+				"weapon spread bonus" 0.2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	1.5
+			}
+		}
+		T_TFBot_Heavyweapons_Mafia
+		{
+			Class Heavyweapons
+			Name "Mafia Heavy"
+			ClassIcon heavy_mafia
+			Skill Expert
+			Name "Mafia Heavy"
+			WeaponRestrictions PrimaryOnly
+			Item "Capone's Capper"
+			Item "Tomislav"
+			ItemAttributes
+			{
+				ItemName "Tomislav"
+				"dmg pierces resists absorbs" 1
+				"weapon spread bonus" 0.5
+			}
+		}
+		T_TFBot_Soldier_Shovel
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_shovel
+			Health 500
+			Name "Shovel Master Soldier"
+			WeaponRestrictions MeleeOnly
+			Item "Furious Fukaamigasa"
+		}
+		T_TFBot_Demoman_Expert
+		{
+			Class Demoman
+			Skill Expert
+			Name "Demoman"
+			WeaponRestrictions PrimaryOnly
+		}
+		T_TFBot_Demoman_Samurai_L0
+		{
+			Class Demoman
+			Name "Samurai Demo"
+			ClassIcon demoknight_samurai
+			Skill Expert
+			Item "The Half-Zatoichi"
+			Item "The Splendid Screen"
+			ItemAttributes
+			{
+				ItemName "The Splendid Screen"
+				"Attack not cancel charge" 1
+			}
+			Item "Demo Kabuto"
+			Health 200
+			WeaponRestrictions MeleeOnly
+		}
+		T_TFBot_Demoman_Samurai_L1
+		{
+			Class Demoman
+			Name "Samurai Demo"
+			ClassIcon demoknight_samurai
+			Skill Expert
+			Item "The Half-Zatoichi"
+			Item "The Splendid Screen"
+			ItemAttributes
+			{
+				ItemName "The Splendid Screen"
+				"Attack not cancel charge" 1
+			}
+			Item "Demo Kabuto"
+			Health 300
+			WeaponRestrictions MeleeOnly
+			CharacterAttributes
+			{
+				"charge time increased" 1
+				"charge recharge rate increased" 1.6
+			}
+		}
+		T_TFBot_Pyro_Expert
+		{
+			Class Pyro
+			Skill Expert
+			Name "Pyro"
+			WeaponRestrictions PrimaryOnly
+		}
+		T_TFBot_Pyro_Science
+		{
+			Class Pyro
+			ClassIcon pyro_science
+			Skill Expert
+			Name "Science Pyro"
+			WeaponRestrictions PrimaryOnly
+			Attributes SpawnWithFullCharge
+			Item "The Phlogistinator"
+		}
+		T_TFBot_Pyro_Axe
+		{
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_axe
+			Name "Axe Wielding Pyro"
+			WeaponRestrictions MeleeOnly
+			Item "Firewall Helmet"
+		}
+////////////////////////////////////GIANT////////////////////////////////
+		T_TFBot_Giant_Heavyweapons_IronCurtain
+		{
+			Class Heavyweapons
+			Name "Armored Giant Heavy"
+			ClassIcon heavy_sasha
+			Skill Expert
+			Health 5000
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			Item "Iron Curtain"
+			Item "Officer's Ushanka"
+			ItemAttributes
+			{
+				ItemName "Iron Curtain"
+				"damage bonus"	2.5
+				"minigun spinup time increased" 2
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+				"dmg taken from fire reduced" 0.20
+				"dmg taken from bullets reduced" 0.35
+				"dmg taken from blast reduced" 0.70
+				//"dmg taken from crit reduced" 0.85
+			}
+		}
+		T_TFBot_Giant_Heavyweapons_Mafia
+		{
+			Class Heavyweapons
+			Name "Giant Mafia Heavy"
+			ClassIcon heavy_mafia_giant
+			Skill Expert
+			Health 5000
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 1500
+			Attributes MiniBoss
+			Item "Capone's Capper"
+			Item "Tomislav"
+			ItemAttributes
+			{
+				ItemName "Tomislav"
+				"dmg pierces resists absorbs" 1
+				"weapon spread bonus" 0.15
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Giant_Medic_Uber
+		{
+			Class Medic
+			Name "Giant Uber Medic"
+			ClassIcon medic_uber_giant
+			Skill Expert
+			Health 4500
+			Attributes SpawnWithFullCharge
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MEDIGUN"
+				"uber duration bonus" 8
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+			}
+		}
+//////////////////////////BOSSES//////////////////////////
+		T_TFBot_Giant_Django // Boss idea by SaturnCaine
+		{
+			Class Demoman
+			Name "Django the Dreaded"
+			ClassIcon demo_django
+			Skill Expert
+			Health 35000
+			WeaponRestrictions MeleeOnly
+			MaxVisionRange 1500
+			Attributes MiniBoss
+			Attributes AlwaysCrit
+			Attributes UseBossHealthBar
+			Item "The Frontier Djustice"
+			Item "The Chargin' Targe"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BOTTLE"
+				"heal on kill" 3500
+				"melee range multiplier" 2.9
+				"melee bounds multiplier" 2.2
+				"damage causes airblast" 1
+			}
+			ItemAttributes
+			{
+				ItemName "The Chargin' Targe"
+				"charge recharge rate increased" 0.25
+			}
+			CharacterAttributes
+			{
+				"damage force reduction" 0.8
+				"airblast vulnerability multiplier" 0.0
+				"override footstep sound set" 4
+				"dmg taken from blast reduced" 0.70
+				"dmg taken from fire reduced" 0.75
+			}
+		}
+	}
+}

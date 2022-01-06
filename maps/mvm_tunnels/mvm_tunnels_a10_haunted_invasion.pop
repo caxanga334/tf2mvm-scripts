@@ -1,0 +1,694 @@
+#base robot_giant.pop
+#base robot_standard.pop
+#base robot_custom.pop
+#base robot_f2p.pop
+#base robot_powerplant.pop
+
+// Wave By Anonymous Player ( http://steamcommunity.com/profiles/76561198053992136/ )
+// https://forum.gamersalapro.com
+// wave_start - no bomb reset
+// wave_start2 - 30 sec bomb reset
+// wave_start3 - 45 sec bomb reset
+// wave_start4 - 60 sec bomb reset
+
+WaveSchedule
+{
+
+	StartingCurrency 7000
+	RespawnWaveTime 3
+	CanBotsAttackWhileInSpawnRoom no
+	FixedRespawnWaveTime Yes
+	EventPopfile Halloween
+	
+	Mission // sentry buster
+	{
+		Objective DestroySentries
+		InitialCooldown 20
+		Where spawnbot_invasion
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		CooldownTime 50
+        TFBot
+		{
+			Template T_TFBot_SentryBuster
+        }
+	}
+	Mission // Sniper
+	{
+		Objective Sniper
+		InitialCooldown 120
+		Where spawnbot_mission_sniper
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		CooldownTime 120
+		DesiredCount 5
+		TFBot
+		{
+			Template T_TFBot_Sniper_AWP
+		}
+	}
+	Mission // Spy
+	{
+		Objective Spy  
+
+		InitialCooldown 150
+		Where spawnbot_mission_spy
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		CooldownTime 150
+		DesiredCount 5
+		TFBot
+		{
+			Template T_TFBot_Gentle_Spy
+		}
+	}
+	Mission // Engineer
+	{
+		Objective Engineer 
+		InitialCooldown 110
+		Where spawnbot
+		BeginAtWave 1
+		RunForThisManyWaves 1
+		CooldownTime 110
+		DesiredCount 1
+		TFBot
+		{
+			Template T_TFBot_Engineer_Sentry_Teleporter_Fast_Build
+			Item "The Snaggletoothed Stetson"
+			TeleportWhere spawnbot_right
+			TeleportWhere spawnbot_center
+			TeleportWhere spawnbot_left
+			TeleportWhere spawnbot_top_right
+			TeleportWhere spawnbot_top_left
+			TeleportWhere spawnbot_invasion
+			TeleportWhere spawnbot
+			TeleportWhere spawnbot_mission_sniper
+			TeleportWhere spawnbot_mission_spy
+		}
+	}
+	Wave // wave 666
+	{
+		StartWaveOutput
+		{
+			Target wave_start4_relay
+			Action Trigger
+		}
+		DoneOutput					
+		{
+			Target wave_finished_relay
+			Action trigger
+		}
+		WaitWhenDone 1
+		Checkpoint Yes
+		// STAGE 1
+		WaveSpawn
+		{
+		
+			Name "stage1_1"
+			Where spawnbot
+			TotalCount 96
+			MaxActive 12
+			SpawnCount 12
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 200
+
+			TFBot
+			{
+                Class Heavyweapons
+				Health 750
+				WeaponRestrictions MeleeOnly
+				Name "Melee Heavy"
+				Item "Nasty Norsemann"
+				Attributes AlwaysCrit
+				
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "stage1_1"
+			Name "stage1_2"
+			Where spawnbot_invasion
+			TotalCount 90
+			MaxActive 12
+			SpawnCount 3
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 100
+			Squad
+			{
+			    TFBot
+				{
+                    Class Pyro
+					Skill Expert
+					WeaponRestrictions SecondaryOnly
+					Name "Shotgun Pyro"
+					Item "Nasty Norsemann"
+					Attributes AlwaysCrit
+					
+				}
+			    TFBot
+				{
+                    Class Scout
+					Skill Expert
+					Item "Nasty Norsemann"
+					Attributes AlwaysCrit
+				}
+			    TFBot
+				{
+                    Class Scout
+					Skill Expert
+					Item "Nasty Norsemann"
+					Attributes AlwaysCrit
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "stage1_1"
+			Name "stage1_2"
+			Where spawnbot
+			TotalCount 30
+			MaxActive 5
+			SpawnCount 1
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 50
+
+			TFBot
+			{
+                Template T_TFBot_Giant_Soldier
+				Item "Pestering Jester"
+				Attributes AlwaysCrit
+			}
+		}
+		// STAGE 2
+		WaveSpawn
+		{
+		
+			Name "stage2_1"
+			WaitForAllDead "stage1_2"
+			Where spawnbot
+			TotalCount 64
+			MaxActive 18
+			SpawnCount 6
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 1
+			TotalCurrency 100
+			TFBot
+			{
+                Class Heavyweapons
+				WeaponRestrictions PrimaryOnly
+				Name "Spammer Heavy"
+				Item "Mad Mask"
+				Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "stage2_1"
+			Name "stage2_2"
+			Where spawnbot_invasion
+			TotalCount 120
+			MaxActive 15
+			SpawnCount 3
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			Squad
+			{
+			    TFBot
+				{
+                    Class Demoman
+					Skill Expert
+					Name "Demolitions"
+					Item "The Headtaker's Hood"
+					Attributes AlwaysCrit
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic
+					Item "The Shaman's Skull"
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic
+					Item "The Shaman's Skull"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage2_3"
+			WaitForAllDead "stage2_2"
+			Where spawnbot_invasion
+			TotalCount 20
+			MaxActive 15
+			SpawnCount 1
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 3000
+			TFBot
+			{
+                Template T_TFBot_Giant_Soldier_RocketShotgun
+				Item "The Infernal Impaler"
+				Attributes AlwaysCrit
+			}
+		}
+		// STAGE 3
+		WaveSpawn
+		{
+			Name "stage3_1"
+			WaitForAllDead "stage2_3"
+			Where spawnbot_invasion
+			TotalCount 96
+			MaxActive 12
+			SpawnCount 6
+			WaitBeforeStarting 20
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			TFBot
+			{
+                Template T_TFBot_Sniper_Huntsman
+				Item "The Haunted Hat"
+				Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "stage3_1"
+			Name "stage3_2"
+			Where spawnbot_invasion
+			TotalCount 120
+			MaxActive 15
+			SpawnCount 5
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 200
+			Squad
+			{
+			    TFBot
+				{
+                    Template T_TFBot_Sniper_Huntsman_Spammer
+					Attributes AlwaysCrit
+					Item "Holy Hunter"
+				}
+			    TFBot
+				{
+                    Class Pyro
+					WeaponRestrictions PrimaryOnly
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Item "Blazing Bull"
+				}
+			    TFBot
+				{
+                    Class Pyro
+					WeaponRestrictions PrimaryOnly
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Item "Blazing Bull"
+				}
+			    TFBot
+				{
+                    Class Pyro
+					WeaponRestrictions PrimaryOnly
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Item "Blazing Bull"
+				}
+			    TFBot
+				{
+                    Class Pyro
+					WeaponRestrictions PrimaryOnly
+					Attributes AlwaysFireWeapon
+					Attributes AlwaysCrit
+					Item "Blazing Bull"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			WaitForAllDead "stage3_2"
+			Name "stage3_3"
+			Where spawnbot_invasion
+			TotalCount 50
+			MaxActive 15
+			SpawnCount 5
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			Squad
+			{
+			    TFBot
+				{
+                    Template T_TFBot_Heavyweapons_Heater
+					Attributes AlwaysCrit
+					Item "Cadaver's Cranium"
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage3_4"
+			WaitForAllDead "stage3_3"
+			Where spawnbot
+			TotalCount 10
+			MaxActive 3
+			SpawnCount 1
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 2000
+			TFBot
+			{
+                Template T_TFBot_Soldier_Rocket_Spammer
+				Item "Idiot Box"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "Idiot Box"
+					"attach particle effect" 37
+				}
+			}
+		}
+		// STAGE 4
+		WaveSpawn
+		{
+			Name "stage4_1"
+			WaitForAllDead "stage3_4"
+			Where spawnbot
+			TotalCount 30
+			MaxActive 15
+			SpawnCount 3
+			WaitBeforeStarting 30
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			TFBot
+			{
+                Template T_TFBot_Giant_Heavyweapons_Shotgun
+				Item "The Toadstool Topper"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "The Toadstool Topper"
+					"set item tint RGB" 1315860
+					"attach particle effect" 44
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage4_2"
+			WaitForAllDead "stage4_1"
+			Where spawnbot
+			TotalCount 60
+			MaxActive 15
+			SpawnCount 5
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			Squad
+			{
+			    TFBot
+				{
+                    Template T_TFBot_Giant_Heavyweapons_Deflector
+					Attributes AlwaysCrit
+					Item "Lil' Bitey"
+					ItemAttributes
+					{
+						ItemName "Lil' Bitey"
+						"attach particle effect" 108
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+					ItemAttributes
+					{
+						ItemName "The Tuque or Treat"
+						"attach particle effect" 74
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+					ItemAttributes
+					{
+						ItemName "The Tuque or Treat"
+						"attach particle effect" 74
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+					ItemAttributes
+					{
+						ItemName "The Tuque or Treat"
+						"attach particle effect" 74
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Medic_BigHeal
+					Item "The Tuque or Treat"
+					ItemAttributes
+					{
+						ItemName "The Tuque or Treat"
+						"attach particle effect" 74
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage4_3a"
+			WaitForAllDead "stage4_2"
+			Where spawnbot
+			TotalCount 25
+			MaxActive 10
+			SpawnCount 5
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 1200
+			TFBot
+			{
+                Template T_TFBot_Demoman_Samurai
+				Attributes AlwaysCrit
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage4_3b"
+			WaitForAllDead "stage4_2"
+			Where spawnbot_invasion
+			TotalCount 128
+			MaxActive 16
+			SpawnCount 8
+			WaitBeforeStarting 10
+			WaitBetweenSpawns 1
+			TotalCurrency 1200
+			TFBot
+			{
+                Template T_TFBot_Demoman_Knight
+				Item "The Toadstool Topper"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "The Toadstool Topper"
+					"set item tint RGB" 1315860
+					"attach particle effect" 73
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage4_4"
+			WaitForAllSpawned "stage4_3a"
+			Where spawnbot
+			TotalCount 50
+			MaxActive 10
+			SpawnCount 10
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 100
+			TFBot
+			{
+                Template T_TFBot_Pyro_Axe
+				Scale 0.35
+				Health 90
+				Attributes AlwaysCrit
+			}
+		}
+		// STAGE 5
+		WaveSpawn
+		{
+			Name "stage5_1"
+			WaitForAllDead "stage4_4"
+			Where spawnbot_invasion
+			TotalCount 30
+			MaxActive 10
+			SpawnCount 10
+			WaitBeforeStarting 30
+			WaitBetweenSpawns 1
+			TotalCurrency 1500
+			TFBot
+			{
+                Template T_TFBot_Giant_Soldier_Crit
+				Item "The Spellbinder's Bonnet"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "The Spellbinder's Bonnet"
+					"attach particle effect" 78
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage5_2"
+			WaitForAllDead "stage5_1"
+			Where spawnbot_invasion
+			TotalCount 96
+			MaxActive 16
+			SpawnCount 8
+			WaitBeforeStarting 5
+			WaitBetweenSpawns 1
+			TotalCurrency 400
+			TFBot
+			{
+                Class Scout
+				WeaponRestrictions PrimaryOnly
+				Item "The Face Plante"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "The Face Plante"
+					"attach particle effect" 47
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage5_3"
+			WaitForAllDead "stage5_2"
+			Where spawnbot
+			TotalCount 48
+			MaxActive 12
+			SpawnCount 2
+			WaitBeforeStarting 1
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			Squad
+			{
+			    TFBot
+				{
+                    Template T_TFBot_Giant_Heavyweapons_Deflector
+					Attributes AlwaysCrit
+					Item "Lil' Bitey"
+					ItemAttributes
+					{
+						ItemName "Lil' Bitey"
+						"attach particle effect" 108
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Giant_Medic
+					Item "The Dark Helm"
+					ItemAttributes
+					{
+						ItemName "The Dark Helm"
+						"attach particle effect" 74
+					}
+				}
+			}
+		}
+		// STAGE 6 FINALE
+		WaveSpawn
+		{
+			Name "stage6_1"
+			WaitForAllDead "stage5_3"
+			Where spawnbot
+			TotalCount 12
+			MaxActive 6
+			SpawnCount 2
+			WaitBeforeStarting 30
+			WaitBetweenSpawns 1
+			TotalCurrency 300
+			Squad
+			{
+			    TFBot
+				{
+                    Template T_TFBot_Giant_Heavyweapons_HealOnKill
+					Attributes AlwaysCrit
+					Item "Minsk Beef"
+					ItemAttributes
+					{
+						ItemName "Minsk Beef"
+						"attach particle effect" 108
+					}
+				}
+			    TFBot
+				{
+                    Template T_TFBot_Giant_Medic
+					Item "The Dark Helm"
+					CharacterAttributes
+					{
+						"bot medic uber health threshold" 1200
+					}
+					ItemAttributes
+					{
+						ItemName "The Dark Helm"
+						"attach particle effect" 105
+					}
+				}
+			}
+		}
+		WaveSpawn
+		{
+			Name "stage6_1"
+			WaitForAllDead "stage5_3"
+			Where spawnbot_invasion
+			TotalCount 96
+			MaxActive 12
+			SpawnCount 6
+			WaitBeforeStarting 32
+			WaitBetweenSpawns 1
+			TotalCurrency 400
+			TFBot
+			{
+                Template T_TFBot_Soldier_Extended_Concheror
+				Item "The Larval Lid"
+				Attributes AlwaysCrit
+				ItemAttributes
+				{
+					ItemName "The Larval Lid"
+					"attach particle effect" 43
+				}
+			}
+		}
+	}
+}

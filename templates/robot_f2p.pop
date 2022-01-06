@@ -1,0 +1,516 @@
+// -- These attributes must attached to a weapon using ItemAttributes and then ItemName --
+
+// "Blast radius decreased"
+// "Reload time decreased"
+// "airblast pushback scale"
+// "arrow mastery"
+// "attack projectiles"
+// "bullets per shot bonus"
+// "clip size bonus"
+// "clip size penalty"
+// "clip size upgrade atomic"
+// "cloak consume rate increased"
+// "critboost on kill"
+// "damage bonus"
+// "damage causes airblast"
+// "damage penalty"
+// "effect bar recharge rate increased"
+// "faster reload rate"
+// "fire rate bonus"
+// "fire rate penalty"
+// "flame life bonus"
+// (not sure about this one -- can't even find where it gets used at a glance) "multiple sentries"
+// "projectile penetration"
+// "projectile spread angle penalty"
+// "scattergun knockback mult"
+// "uber duration bonus"
+// "ubercharge rate bonus"
+// "use large smoke explosion"
+// ----------------------------------------------------
+WaveSchedule
+{
+	Templates
+	{
+	    //SCOUTS
+		T_TFBot_Scout_Free
+		{
+			Class Scout
+			Skill Easy
+			WeaponRestrictions MeleeOnly
+			Name "F2P Scout"
+			Item "The Holy Mackerel"
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Scout_Pistol_Free
+		{
+			Class Scout
+			Skill Easy
+			ClassIcon scout_pistol
+			WeaponRestrictions SecondaryOnly
+			Name "F2P El Pistoleiro Scout"
+			Item "The Holy Mackerel"
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Sniper_Free
+		{
+			Class Sniper
+			Name "F2P Sniper"
+			Skill Hard
+			MaxVisionRange 2500
+			Item "Ghastly Gibus"
+		}
+
+		T_TFBot_Sniper_Razorback_Free
+		{
+			Class Sniper
+			Name "F2P Razorback Sniper"
+			Skill Hard
+			ClassIcon sniper_razorback
+			Item "The Razorback"
+			Item "Ghastly Gibus"
+			MaxVisionRange 2500
+		}
+
+		T_TFBot_Sniper_Sydney_Sleeper_Free
+		{
+			Class Sniper
+			Name "F2P Sydney Sniper"
+			Skill Hard
+			ClassIcon sniper_sydneysleeper
+			Item "The Sydney Sleeper"
+			Item "Ghastly Gibus"
+			MaxVisionRange 3000
+		}
+		T_TFBot_Sniper_Huntsman_Free
+		{
+			Class Sniper
+			Name "F2P Bowman"
+			Skill Hard
+			ClassIcon sniper_bow
+			WeaponRestrictions PrimaryOnly
+			Item "The Huntsman"
+			Item "Ghastly Gibus"
+
+			ItemAttributes
+			{
+				ItemName "The Huntsman"
+				"damage bonus" 0.5
+			}
+		}
+		T_TFBot_Spy_Free
+		{
+			Class Spy
+			Skill Expert
+			Name "F2P Spy"
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Spy_Degenerate_Free
+		{
+			Class Spy
+			Skill Expert
+			Name "F2P IamgoingtofuckU"
+			Item "Ghastly Gibus"
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_BUILDER_SPY"
+				"kill eater score type" 24
+				"sapper damage penalty" 0
+				"sapper degenerates buildings" 0.9
+			}
+		}
+		T_TFBot_Soldier_Free
+		{
+			Class Soldier
+			Skill Easy
+			Name "F2P Soldier"
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Soldier_Science_Free
+		{
+			Class Soldier
+			ClassIcon soldier_science
+			Skill Easy
+			Name "F2P Science Soldier"
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+			Item "The Cow Mangler 5000"
+		}
+		T_TFBot_Heavy_Free
+		{
+			Class Heavyweapons
+			Skill Easy
+			Name "F2P Heavyweapons"
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Soldier_Shovel_Free
+		{
+			Class Soldier
+			Skill Expert
+			ClassIcon soldier_shovel
+			Health 500
+			Name "F2P Shovel Master Soldier"
+			WeaponRestrictions MeleeOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Demo_Free
+		{
+			Class Demoman
+			Skill Easy
+			Name "F2P Demoman"
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Pyro_Free
+		{
+			Class Pyro
+			Skill Easy
+			Name "F2P Pyro"
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Pyro_Science_Free
+		{
+			Class Pyro
+			ClassIcon pyro_science
+			Skill Easy
+			Name "F2P Pyro"
+			WeaponRestrictions PrimaryOnly
+			Attributes SpawnWithFullCharge
+			Item "Ghastly Gibus"
+			Item "The Phlogistinator"
+		}
+		T_TFBot_Pyro_Axe_Free
+		{
+			Class Pyro
+			Skill Expert
+			ClassIcon pyro_axe
+			Name "F2P Axe Wielding Pyro"
+			WeaponRestrictions MeleeOnly
+			Item "Ghastly Gibus"
+		}
+		T_TFBot_Medic_Free
+		{
+			Class Medic
+			Skill Easy
+			ClassIcon medic_uber
+			Name "F2P Uber Medic"
+			WeaponRestrictions SecondaryOnly
+			Attributes SpawnWithFullCharge
+			Item "Ghastly Gibus"
+		}
+		//Engineer F2P
+		T_TFBot_Engineer_Sentry_Teleporter_Free
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 500
+			Attributes TeleportToHint
+			Item "Ghastly Gibus"
+			Name "F2P Engineer"
+		}
+		// Engineer F2P With fast Build
+		T_TFBot_Engineer_Sentry_Teleporter_Fast_Free
+		{
+			Class Engineer
+			Name Engineer
+			ClassIcon engineer_fast
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 500
+			Attributes TeleportToHint
+			Item "Ghastly Gibus"
+			Name "F2P Fast Engineer"
+
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_WRENCH"
+				"engineer sentry build rate multiplier" 1.75
+				"engineer teleporter build rate multiplier" 3.0
+				"Construction rate increased" 5.0
+			}
+		}
+
+		//TELEPORT INTO MAP DO NOT BUILD TELEPORTER
+		T_TFBot_Engineer_Sentry_Battle_TeleIn_Free
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			Health 275
+			Attributes TeleportToHint
+			Item "Ghastly Gibus"
+			Name "F2P Engineer"
+		}
+
+		//NOT TELEPORT INTO MAP ENGY
+		T_TFBot_Engineer_Sentry_Tele_Battle_Free
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			TeleportWhere spawnbot
+			Health 275
+			Item "Ghastly Gibus"
+			Name "F2P Engineer"
+		}
+
+		//NOT TELEPORT INTO MAP ENGY AND DOES NOT BUILD A TELEPORTER
+		T_TFBot_Engineer_Sentry_Battle_Free
+		{
+			Class Engineer
+			Name Engineer
+			Skill Expert
+			Health 275
+			Item "Ghastly Gibus"
+			Name "F2P Engineer"
+		}
+////////////////////////////////////GIANT////////////////////////////////
+		T_TFBot_Giant_Heavyweapons_Free
+		{
+			Class Heavyweapons
+			Name "F2P Giant Heavy"
+			ClassIcon heavy_giant
+			Skill Easy
+			Item "Ghastly Gibus"
+			Health 5000
+			WeaponRestrictions PrimaryOnly
+			MaxVisionRange 1200
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_MINIGUN"
+				"damage bonus"	1.5
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.3
+				"airblast vulnerability multiplier" 0.3
+				"override footstep sound set" 2
+			}
+		}
+		T_TFBot_Giant_Scout_Free
+		{
+			Class Scout
+			Name "F2P Giant Scout"
+			ClassIcon scout_giant
+			Skill Easy
+			Item "Ghastly Gibus"
+			Health 1600
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"damage force reduction" 0.7
+				"airblast vulnerability multiplier" 0.7
+				"override footstep sound set" 5
+			}
+		}
+		T_TFBot_Giant_Soldier_FREE
+		{
+			Class Soldier
+			Name "F2P Giant Soldier"
+			ClassIcon soldier_giant
+			Item "Ghastly Gibus"
+			Skill Easy
+			Health 3800
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		T_TFBot_Giant_Soldier_Science_Free
+		{
+			Class Soldier
+			Name "F2P Giant Scisnce Soldier"
+			ClassIcon soldier_science_giant
+			Item "Ghastly Gibus"
+			Item "The Cow Mangler 5000"
+			Skill Easy
+			Health 3800
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.4
+				"airblast vulnerability multiplier" 0.4
+				"override footstep sound set" 3
+			}
+		}
+		T_TFBot_Giant_Pyro_Science_Free
+		{
+			Class Pyro
+			Name "F2P Giant Science Pyro"
+			ClassIcon pyro_science_giant
+			Item "Ghastly Gibus"
+			Item "The Phlogistinator"
+			Attributes SpawnWithFullCharge
+			Skill Easy
+			Health 3000
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"override footstep sound set" 6
+			}
+		}
+		T_TFBot_Giant_Pyro_Free
+		{
+			Class Pyro
+			Name "F2P Giant Pyro"
+			ClassIcon pyro_giant
+			Item "Ghastly Gibus"
+			Skill Easy
+			Health 3000
+			WeaponRestrictions PrimaryOnly
+			Attributes MiniBoss
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"override footstep sound set" 6
+			}
+		}
+
+		T_TFBot_Giant_Demoman_Free
+		{
+			Class Demoman
+			Name "F2P Giant Rapid Fire Demoman"
+			ClassIcon demo_giant
+			Skill Easy
+			Health 3300
+			WeaponRestrictions PrimaryOnly
+			Item "Ghastly Gibus"
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"faster reload rate" -0.4
+				"fire rate bonus" 0.75
+
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+
+		T_TFBot_Giant_Demo_RapidFire_Free
+		{
+			Class Demoman
+			Name "F2P Giant Rapid Fire Demoman"
+			ClassIcon demo_giant
+			Item "Ghastly Gibus"
+			Health 3000
+			Skill Easy
+			WeaponRestrictions PrimaryOnly
+			Attributes HoldFireUntilFullReload
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_GRENADELAUNCHER"
+				"fire rate bonus" 0.5
+				"damage force reduction" 0.5
+			}
+
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"airblast vulnerability multiplier" 0.5
+				"override footstep sound set" 4
+			}
+		}
+		
+		T_TFBot_Giant_Medic_Free
+		{
+			Class Medic
+			Name "F2P Giant Medic"
+			ClassIcon medic_giant
+			Skill Easy
+			Health 4500
+			Attributes SpawnWithFullCharge
+			Item "The Quick-Fix"
+			Item "Ghastly Gibus"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+				"heal rate bonus" 200 // only works on mediguns that have this attribute ie quickfix
+			}
+		}
+		
+		T_TFBot_Giant_Medic_Uber_Free
+		{
+			Class Medic
+			Name "F2P Giant Uber Medic"
+			ClassIcon medic_uber_giant
+			Skill Easy
+			Health 4500
+			Attributes SpawnWithFullCharge
+			Item "Ghastly Gibus"
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+			}
+		}
+		T_TFBot_Giant_Medic_Uber
+		{
+			Class Medic
+			Name "Giant Uber Medic"
+			ClassIcon medic_uber_giant
+			Skill Expert
+			Health 4500
+			Attributes SpawnWithFullCharge
+			WeaponRestrictions SecondaryOnly
+			Attributes MiniBoss
+			ItemAttributes
+			{
+				ItemName "TF_WEAPON_SYRINGEGUN_MEDIC"
+				"damage penalty" 0.1
+			}
+			CharacterAttributes
+			{
+				"move speed bonus"	0.5
+				"damage force reduction" 0.6
+				"airblast vulnerability multiplier" 0.6
+			}
+		}
+	}
+}
